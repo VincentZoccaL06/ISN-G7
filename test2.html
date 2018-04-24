@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<style>
+body{
+margin:0;
+padding:0;
+background: url(fond1.jpg) no-repeat center fixed;
+background-size: cover; /* version standardisée */
+}
+</style> 
+    <head>
+        &nbsp;&nbsp;&nbsp;</title>Bienvenue sur le site ZOC_Web</title>
+        <meta charset="utf-8" />
+    </head>
+    <body>
+        <header>
+            <h1>Mon agenda</h1>
+            <p>lien utile</p>
+        </header>
+        <nav>
+            <ul>
+                <li><a href="http://google.fr">acces à Google.fr</a></li>
+                <li><a href="#">Accueil</a></li>
+                <li><a href="#">Me contacter</a></li>
+            </ul>
+        </nav>
+      
+
+        <footer>
+            <p>Copyright ZOC_WEB coporation - Tous droits réservés</p>
+        </footer>
+    </body>
+
+<script type='text/javascript' src='http://code.jquery.com/jquery-1.9.1.js'></script>
+<script type='text/javascript'>
+$(window).load(function(){
+    function readURL(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+             
+            reader.onload = function (e) {
+                $('#adresse').attr('src', e.target.result);
+            }
+             
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+     
+    $("#photo1").change(function(){
+        readURL(this);
+    });
+});
+ 
+</script>
+
+
+<?php>
+    <input type= "file" id="photo1"></p>
+    <img id="adresse" src="#" alt="Mon image telechargé" width="150" height="150" />
+    <input type= "file" name="photo2"></p>
+    <img src=images/fond.jpg width="150" height="150" img/>
+   
+<?php> 
+ 
+ 
+
+
+</html
