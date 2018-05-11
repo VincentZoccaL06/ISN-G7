@@ -19,8 +19,8 @@ background-size: cover; /*taille image de fond*/
 	<h1><?php echo ("la date du jour est :").date('d/m/Y') ?></h1>
 	<ul>
 		<!--affichage  raccourci menu   -->
-    	<h1><a href="admin/ajoutevent.php">Ajouter un événement</a></br>
-        <a href="admin/supprevent.php">Supprimer un événement</a></h1>
+    	<h1><a href="ajoutevent.php">Ajouter un événement</a></br>
+        <a href="supprevent.php">Supprimer un événement</a></h1>
     </ul>  
 <?php
 	#  creation de la fonction  gestion des evenements ----------------

@@ -12,7 +12,7 @@ background-size: cover; /*taille image de fond*/
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<title>Gestion de calendrier | Ajout d'événement</title>
-    <link rel="stylesheet" type="text/css" href="../design/calendrier.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="design/calendrier.css" media="screen" />
 </head>
 <body>
 	<?php
@@ -46,10 +46,11 @@ background-size: cover; /*taille image de fond*/
 					$identifiantCommun = time();
 					$timeDuJour = $timestampDebut;
 					
-					include("../sql_connect.php");
+					include("sql_connect.php");
 					
 					for($i=0 ; $i<$nbreJours ; $i++) {
 						$req = "INSERT INTO date_evenement  VALUES ('', ".date('d', $timeDuJour).", ".date('m', $timeDuJour).", ".date('Y', $timeDuJour).", $identifiantCommun)";
+						echo $req;
 						mysqli_query($connection,$req) or die(mysqli_error($connection));
 						
 						$timeDuJour += 86400; // On augmente le timestamp d'un jour
@@ -121,12 +122,12 @@ background-size: cover; /*taille image de fond*/
 if (!empty($_FILES))
 {
 	$img = $_FILES ['img'];
-	move_uploaded_file($img['tmp_name'], "../images/".$img['name']);
+	move_uploaded_file($img['tmp_name'], "images/".$img['name']);
 }
 include ("sql_connect.php");
 $adresse = $img['tmp_name'];
 echo $img ;
-$req = "INSERT INTO vincent VALUES('' ,'$adresse')";
+$req = "INSERT INTO image VALUES('' ,'$adresse')";
 echo $req;
 $exec = mysqli_query($connection,$req);
 // verif  du fichier image
@@ -155,7 +156,7 @@ $(window).load(function(){
     });
 });
  -->
- <p class="centre"><br/><a href="../calendrier.php">Revenir à l'accueil</a></p>
+ <p class="centre"><br/><a href="calendrier.php">Revenir à l'accueil</a></p>
 </script>
 
 </html>
