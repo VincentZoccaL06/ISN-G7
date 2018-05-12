@@ -1,11 +1,10 @@
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 
 
 <!-- affiche image de fond  -->
 <style>
-body{margin:0;padding:0;background: url(star7.jpg) no-repeat center fixed; /*image de fond*/
+body{margin:0;padding:0;background: url(../star7.jpg) no-repeat center fixed; /*image de fond*/
 background-size: cover; /*taille image de fond*/
 	}
 </style> 
@@ -37,58 +36,44 @@ background-size: cover; /*taille image de fond*/
 				
 				$timestampDiff = $timestampFin - $timestampDebut;
 				$nbreJours = intval($timestampDiff / 86400)+1;
-				$img = $_FILES ['img'];
-				$adresse_image = $img['tmp_name'];
-				$nom_image = $img['name'];
-				$img_photo = file_get_contents($adresse_image);
-				$img_photo = base64_encode($adresse_image);
 				if($nbreJours <= 0) $nbreJours = 1;
+
+
+				//&& !empty($_POST['img']
 				
 				
-				if(!empty($titre) && !empty($description) && !empty($_POST)) {
+				
+				if(!empty($titre) && !empty($description) ) {
 					// Traitement de l'enregistrement de l'événement
 					$identifiantCommun = time();
 					$timeDuJour = $timestampDebut;
 					
 					include("sql_connect.php");
-
-
-
-
-
-	//$identifiantCommun = time();
-	
-	//echo "valeur test :".$img['tmp_name'];
-	//echo "valeur test2 :".$img['name'];
-	
-	
-	//echo "valeur test3 :".$adresse_image;
-	//echo "valeur test4 :".$nom_image;
-	//echo "non du titre:".$titre;
-	
-	//include ("sql_connect.php"); // appel connection dbase
-	//$requette = "INSERT INTO date_evenement (nom_image,photo,titre_evenement) VALUES ('$nom_image','$img_photo','$titre')";
-	//echo "req image:".$requette;
-	
-
-
-
-
-
-
-
+					//print_r($_FILES);
+					//$img = $_FILES ['img'];
+					//$adresse_image = $img['tmp_name'];
+					//$nom_image = $img['img'];
+					if (!empty($_FILES['img']['name']))
+					{
+					$nom_photo= addslashes($_FILES['img']['name']);
+					$tmp_photo = addslashes(file_get_contents($_FILES['img']['tmp_name']));
+					//$type_photo = base64_encode($img_photo);
+					$type_photo=addslashes($_FILES['img']['type']);
+					}
+					else
+					{
+					$nom_photo= "";
+					$tmp_photo= "";
+					}
 
 					for($i=0 ; $i<$nbreJours ; $i++) {
-						$req = "INSERT INTO date_evenement  VALUES ('', ".date('d', $timeDuJour).", ".date('m', $timeDuJour).", ".date('Y', $timeDuJour).", $identifiantCommun, '$titre', '$description','$nom_image','$img_photo')";
-						echo $req;
+						$req = "INSERT INTO date_evenement  VALUES ('', ".date('d', $timeDuJour).", ".date('m', $timeDuJour).", ".date('Y', $timeDuJour).", $identifiantCommun, '$titre', '$description','$tmp_photo','$nom_photo')";
+						//echo $req;
 						mysqli_query($connection,$req) or die(mysqli_error($connection));
 						
 						$timeDuJour += 86400; // On augmente le timestamp d'un jour
 					}
-					
-					//$req = "INSERT INTO evenements VALUES ($identifiantCommun, '$titre', '$description')";
-					//mysqli_query($connection,$req) or die(mysqli_error($connection));
-					
+										
 					mysqli_close($connection);
 					
 					echo '<ul><li>Evénement enregistré !</li></ul>';

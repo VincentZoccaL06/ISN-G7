@@ -1,12 +1,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 
-<!-- affiche image de fond  -->
-<style>
-body{margin:0;padding:0;background: url(fond1.jpg) no-repeat center fixed; /*image de fond*/
-background-size: cover; /*taille image de fond*/
-	}
-</style> 
 
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -170,6 +164,23 @@ background-size: cover; /*taille image de fond*/
 			}
 			echo '</tr>';
 		}
+
+#--------------------------suppression auto 1 mois avant 
+		$ref=1;
+		for($i=0; $i<$ref; $i++){ #pour le faire 1 seule fois
+		$mois=date('m');
+		$mois_suppr= date("m",strtotime("- 1 month")); 
+		//echo $mois_suppr;
+		$annee=date('Y');
+		include("sql_connect.php");
+		$suppr='DELETE FROM date_evenement WHERE mois_evenement<='.$mois_suppr.' AND annee_evenement<='.$annee.''; #requete de suppr
+		//echo $suppr;
+		$query = mysqli_query($connection,$suppr) or die("Une requête a échouée.");
+		mysqli_close($connection);
+	}
+#---------------------------------
+
+
 	?>
 	</table>
 	

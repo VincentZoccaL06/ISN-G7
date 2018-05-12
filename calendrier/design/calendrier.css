@@ -1,17 +1,32 @@
 @charset "utf-8";
 /* CSS Document */
 
-
 .centre {
-	text-align: center;
+    text-align: center;
+	color : white;
+	display: inline-block;
+    width: 200px;
+    border: 2px solid white;
+    position: absolute;
+    right: 670px;
+    bottom: 100px;
+
+
+
 }
+
+ body
+{
+    background: url("fond1.jpg") fixed no-repeat;
+}     
 
 h1 {
 	text-align: center;
+	color : white;
 }
 
 .code {
-	border: 1px dotted black;
+	border: 1px dotted white;
 	padding: 5px;
 }
 
@@ -20,18 +35,18 @@ h1 {
 table.calendrier {
 	margin: auto;
 	text-align: center;
-	border: 5px solid black;
+	border: 5px solid white;
 	border-collapse: collapse;
 }
 
 table.calendrier th {
-	border-bottom: 2px solid black;
+	border-bottom: 2px solid white;
 }
 
 table.calendrier td {
-	border: 2px solid black;
-	width:75px;
-	height:40px;
+	border: 2px solid white;
+	width:120px;
+	height:66px;
 }
 
 table.calendrier td div {
@@ -65,7 +80,7 @@ table.calendrier td div {
 /* Infobulles */
 a.info {
 	position: relative;
-	color: black;
+	color: ;
 	text-decoration: red;
 	display: block;
 }
@@ -88,16 +103,21 @@ a.info:hover span {
 	text-align: left;
 	background: white;
 	padding: 3px;
-	border: 1px solid black;
+	border: 1px solid white;
 }
 
 /* Liste des événements à supprimer */
 table.listeEvent {
 	width: 100%;
-	border: 1px solid black;
+	border: 1px solid white;
 	border-collapse: collapse;
 }
 
 table.listeEvent td {
 	padding: 5px;
+}
+
+table 
+{
+
 }

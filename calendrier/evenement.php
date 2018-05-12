@@ -27,17 +27,32 @@
 						<table>
 							
 							<tr>
-								<th>'.$date_evenements['jour_evenement'].'/'.$date_evenements['mois_evenement'].'/'.$date_evenements['annee_evenement'].'</th> <tr></tr>
-								<th>'.$date_evenements['titre_evenement'].'</th>
+								<th>'.$date_evenements['jour_evenement'].'/'.$date_evenements['mois_evenement'].'/'.$date_evenements['annee_evenement'].'	
+									</th> 
+									<tr>
+								</tr>
+								<th>'
+								.$date_evenements['titre_evenement'].'
+								</th>
+									</tr>
+									<tr>
+								<td>
+								'.$date_evenements['contenu_evenement'].'
+								</td>
 							</tr>
-							<tr>
-								<td>'.$date_evenements['contenu_evenement'].'</td>
-							</tr>
+
 						</table>
 						
-						<br/><br/>
+						
 					';
-					
+					//affichage  de la phot lie a  l'evenement au dimention 150*150 si elle existe
+					if(!empty($date_evenements['photo']))
+					{
+					echo '<img height ="150" width="150" src="data:image;base64,'.base64_encode($date_evenements['photo']).'"></br>';
+					}
+					else{}
+					echo "_____________________________________________________________________________";
+					//echo $date_evenements['photo'];
 				}
 				
 			} else {
