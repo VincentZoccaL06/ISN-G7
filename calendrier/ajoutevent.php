@@ -110,7 +110,8 @@ background-size: cover; /*taille image de fond*/
                 </td>
             </tr>
             <tr>
-            	<td colspan="2"><input type = "file" name = "img" /><br></br><input type="submit" name="envoi" value="Enregistrer"/></td>
+            	<td colspan="2"><input type = "file" name = "img" /><br></br>
+            					<input type="submit" name="envoi" value="Enregistrer"/></td>
             </tr>
 		</table>
 	</form>

@@ -24,18 +24,18 @@
 			if(mysqli_num_rows($date_evenement)) {
 				while($date_evenements = mysqli_fetch_array($date_evenement)) {
 					echo '
-						<table>
+						<table class="listeEvent">
 							
 							<tr>
 								<th>'.$date_evenements['jour_evenement'].'/'.$date_evenements['mois_evenement'].'/'.$date_evenements['annee_evenement'].'	
-									</th> 
-									<tr>
-								</tr>
+								</th> 
+							<tr>
+							</tr>
 								<th>'
 								.$date_evenements['titre_evenement'].'
 								</th>
-									</tr>
-									<tr>
+							</tr>
+							<tr>
 								<td>
 								'.$date_evenements['contenu_evenement'].'
 								</td>
@@ -51,7 +51,6 @@
 					echo '<img height ="150" width="150" src="data:image;base64,'.base64_encode($date_evenements['photo']).'"></br>';
 					}
 					else{}
-					echo "_____________________________________________________________________________";
 					//echo $date_evenements['photo'];
 				}
 				

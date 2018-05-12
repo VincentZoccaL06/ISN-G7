@@ -13,10 +13,8 @@
 			// Traitement de la suppression de l'événement
 			$id = htmlentities($_GET['id']);
 			
-			$req = "DELETE FROM calendrier WHERE id_evenement = " .$id;
-			mysqli_query($connection,$req);
-			
-			$req = "DELETE FROM evenements WHERE id_evenement = " .$id;
+			$req = "DELETE FROM date_evenement WHERE id_evenement = " .$id;
+			//echo $req ;
 			mysqli_query($connection,$req);
 			
 			echo '<ul><li>Evénement supprimé !</li></ul>';
@@ -24,7 +22,7 @@
 		
 		
 		// Récupération des événements
-		$req = "SELECT * FROM evenements";
+		$req = "SELECT * FROM date_evenement";
 		$evenements = mysqli_query($connection,$req);
 		
 		if(mysqli_num_rows($evenements)) $nbEvents = true;
@@ -42,12 +40,22 @@
 		while($evenement = mysqli_fetch_array($evenements)) {
 			echo '
 			<table class="listeEvent">
+							<tr>
+								<th>'.$evenement['jour_evenement'].'/'.$evenement['mois_evenement'].'/'.$evenement['annee_evenement'].'	
+								</th> 
+							<tr>
 				<tr><td>'.html_entity_decode($evenement['titre_evenement']).'</td></tr>
 				<tr><td>'.html_entity_decode($evenement['contenu_evenement']).'</td></tr>
 				<tr><td><a href="supprevent.php?id='.$evenement['id_evenement'].'">Supprimer</a></td></tr>
+
 			</table>
 			<br/><br/>
 			';
+			if(!empty($evenement['photo']))
+					{
+					echo '<img height ="150" width="150" src="data:image;base64,'.base64_encode($evenement['photo']).'"></br>';
+					}
+					else{}
 		}
 		
 	} else {
