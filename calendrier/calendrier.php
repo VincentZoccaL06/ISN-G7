@@ -31,7 +31,7 @@ background-size: cover; /*taille image de fond*/
 		
 		include("sql_connect.php");
 		
-		$sql = 'SELECT DISTINCT jour_evenement, titre_evenement FROM date_evenement c, evenements e WHERE mois_evenement='.$mois.' AND annee_evenement='.$annee.' AND c.id_evenement = e.id_evenement ORDER BY jour_evenement';
+		$sql = 'SELECT DISTINCT jour_evenement, titre_evenement FROM date_evenement WHERE mois_evenement='.$mois.' AND annee_evenement='.$annee.' ORDER BY jour_evenement';
 		
 
 		$query = mysqli_query($connection,$sql) or die("Une requête a échouée.");

@@ -14,21 +14,24 @@
 			$date = htmlentities($_GET['d']);
 			$tabDate = explode('/', $date);
 			
-			$req = "SELECT * FROM evenements WHERE id_evenement IN (SELECT id_evenement FROM date_evenement WHERE jour_evenement=".$tabDate[0]." AND mois_evenement=".$tabDate[1]." AND annee_evenement=".$tabDate[2].")";
-			
+			$req = "SELECT * FROM date_evenement WHERE id_evenement IN (SELECT id_evenement FROM date_evenement WHERE jour_evenement=".$tabDate[0]." AND mois_evenement=".$tabDate[1]." AND annee_evenement=".$tabDate[2].")";
+			//echo $req ;
+
 			include("sql_connect.php");
+
+			$date_evenement = mysqli_query($connection,$req);
 			
-			$evenements = mysqli_query($connection,$req);
-			
-			if(mysqli_num_rows($evenements)) {
-				while($evenement = mysqli_fetch_array($evenements)) {
+			if(mysqli_num_rows($date_evenement)) {
+				while($date_evenements = mysqli_fetch_array($date_evenement)) {
 					echo '
 						<table>
+							
 							<tr>
-								<th>'.$evenement['titre_evenement'].'</th>
+								<th>'.$date_evenements['jour_evenement'].'/'.$date_evenements['mois_evenement'].'/'.$date_evenements['annee_evenement'].'</th> <tr></tr>
+								<th>'.$date_evenements['titre_evenement'].'</th>
 							</tr>
 							<tr>
-								<td>'.$evenement['contenu_evenement'].'</td>
+								<td>'.$date_evenements['contenu_evenement'].'</td>
 							</tr>
 						</table>
 						
