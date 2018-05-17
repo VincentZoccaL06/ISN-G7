@@ -1,11 +1,11 @@
 @charset "utf-8";
 /* CSS Document */
 
+/*retour à l'acueil(fleche bleu)*/
 .centre {
-    text-align: center;
-	color : white;
-	position: fixed;
-	left: 10px;
+    color : white;
+	position: fixed; /*on ancre retour à l'accueil*/ 
+	left: 10px; 
     top: 0px;
 
     
@@ -13,35 +13,36 @@
 
  body
 {
-    background: url("fond5.png");
-    background-position : center center;
-    font-family: "arial";
-    margin-bottom: : 200px;
+    background: url("fond5.png"); /*on definit le fond du site*/
+    background-position : center center; /* on centre le fond*/
+    font-family: "arial"; /*on choisie la police du site*/
+    margin-bottom: : 200px; /*on regle la marge*/
 }     
-ul{
-
-}
 
 
 
+ /*présentation "calendrier" et "nous sommes le"*/
 h1 {
-	text-align: center;
+	text-align: center; 
 	color : white;
 }
 
+/*date evenement*/
 h2 {
-	text-align: center;
+	text-align: center; 
 	color : black;
 }
 
+/*titre evenement*/
 h3 {
-	text-align: center;
+	text-align: center;     
 	color : black;
 	text-decoration:underline /*souligne le titre des notes*/
 }
 
+/*la note*/
 h4 {
-	text-align: center;
+	text-align: center;   /*la note*/
 	color : black;
 }
 
@@ -55,26 +56,27 @@ h4 {
 
 /* Calendrier */
 table.calendrier {
-	margin: auto;
-	text-align: center;
-	border: 5px solid black;
-	border-collapse: collapse;
-	font-size: 120%;
-	background-color: rgb(243, 247, 255)/*jour creux*/
+	margin: auto; /*on centre le tableau au centre*/
+	text-align: center; /*on centre les dates dans les cases*/
+	border: 5px solid black; /*bord tableau*/
+	border-collapse: collapse; /*bordure collées*/
+	font-size: 130%; /*taille mois*/
+	background-color: rgb(243, 247, 255)/*jours creux*/
 	
 
 
 
 }
-
+/*barre tableau séparant les noms des jours du calendrier*/
 table.calendrier th {
 	border-bottom: 2px solid black;
 }
 
+/*dimension tableau(calendrier)*/
 table.calendrier td {
-	border: 2px solid black;
-	width:120px;
-	height:66px;
+	border: 2px solid black; /*épaisseur*/
+	width:150px;             /*largeur*/
+	height:74px;             /*hauteur*/
 
 
 }
@@ -85,11 +87,11 @@ table.calendrier td div {
 }
 
 .jourEvenement {
-	background-color: rgb(35,136,25);/*evenement*/
+	background-color: rgb(35,136,25);/*couleur de la case d'un évenement*/
 }
 
 .lienCalendrierJour {
-	background-color: rgb(218,57,21);/*aujourdhui*/
+	background-color: rgb(218,57,21);/*couleur de la case d'aujourdhui*/
 }
 
 .calendrier caption {
@@ -99,26 +101,24 @@ table.calendrier td div {
 }
 
 
-/* Administration */
+/* page ajouter un evenement */
 #tabAjoutEvent {
 	margin: auto;
-	color: black
+	color: black;
 }
-#tabAjoutEvent td {
-	width: 50%;
-	text-align:center;
-	
-
+#tabAjoutEvent td {  
+	width: 50%;    
+	text-align:center;    
 }
 
 
 /* Infobulles */
 a.info {
-	position: relative;
+	position: relative; /*positionnement relatif*/
 	color: black; /*couleur date */
-	text-decoration: red;
-	display: block;
-	font-size: 110%;/*taille date evenement*/ 
+	text-decoration: white;
+	display: block; /*on affiche un bloc*/
+	font-size: 120%;/*taille date d'un évenement*/ 
 }
 a.info span {
 	display: none; /* on masque l'infobulle */
@@ -129,34 +129,29 @@ a.info:hover {
 }
 a.info:hover span {
 	display: inline; /* on affiche l'infobulle */
-	position: absolute;
+	position: absolute; /* les infobulles se réferencient à l'élément le plus proche et non à la fenètre du navigateur*/
 
 	white-space: nowrap; /* on change la valeur de la propriété white-space pour qu'il n'y ait pas de retour à la ligne non-désiré */
 
 	top: 30px; /* on positionne notre infobulle */
 	left: 20px;
 	
-	text-align: left;
-	background-color: rgb(149, 178, 235);/*couleur fond  bulle*/
-	padding: 2px;
-	border: 1px solid background-color:rgb(149, 178, 235);/*couleur bord bulle*/
-	border-radius: 10px; /*arrondi*/
+	text-align: left; /*on centre le texte à gauche de la bulle */
+	background-color: rgb(223,234,255);/*couleur fond bulle*/
+	padding: 7px;/*écart de remplissage ente le bord de la bulle et le texte*/
+	border: 1px solid black;/*couleur bords bulle*/
+	border-radius: 5px; /* on arrondie les coins de l'infobulle*/
 }
 
 /* Liste des événements à supprimer */
 table.listeEvent {
-
-    width: 100%;/*taille cadre note+image*/
-	border: 2px solid white;
-	border-collapse: separate;
+    object-position: center; /*centrage*/
+    width: 100%;/*taille cadre note et image*/
+	border: 3px solid white; /*épaisseurd des bords des bulles et de leur couleur*/
+	border-collapse: separate;/* on separe les bulles de notes*/
 	border-radius: 10px; /*coté arrondis*/
-	margin-top: 30px; /*espaces entre les les bulles de nots/*
-
+	margin-top: 30px; /* on espace verticalement les bulles de notes entre-elles/*
 }
-
-
 	
 	
-
-
 }

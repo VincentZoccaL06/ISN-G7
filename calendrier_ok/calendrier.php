@@ -28,9 +28,9 @@
 
 			function getEventsDate($mois, $annee)
 				{
-					$result = array(); # # stock  result dans un tableau 
+					$result = array(); # # stock result dans un tableau 
 					
-					include("sql_connect.php"); # appel connection basse de données 
+					include("sql_connect.php"); # appel connection base de données 
 					# requette recupére dans la table date_evenement  le jour  et tire  du mois et année en cours et  les trie par  jour d'evenement.
 					
 					$sql = 'SELECT DISTINCT jour_evenement, titre_evenement FROM date_evenement WHERE mois_evenement='.$mois.' AND annee_evenement='.$annee.' ORDER BY jour_evenement';
@@ -113,10 +113,10 @@
 					$mois_apres = $numero_mois + 1;
 				}
 			
-			// 0 => Dimanche, 1 => Lundi, 2 = > Mardi...
+			//  w classe les jours de la semaine 0 => Dimanche, 1 => Lundi, 2 = > Mardi...
 			$numero_jour1er = date('w', $timestamp);
 			
-			// Changement du numéro du jour car l'array commence à l'indice 0
+			// Changement du numéro du jour car  le tableau (array) commence à l'indice 0
 			if ($numero_jour1er == 0) $numero_jour1er = 6; // Si c'est Dimanche, on le place en 6ème position (après samedi)
 			else $numero_jour1er--; // Sinon on mets lundi à 0, Mardi à 1, Mercredi à 2...
 		?>
@@ -140,7 +140,7 @@
 							{
 								echo '<td class="jourEvenement'; # grise le jour de l'évenement  appel  a la classe dans le css
 								if(isset($coloreNum) && $coloreNum == $i) echo ' lienCalendrierJour';
-								echo '"><a href="evenement.php?d='.$i.'/'.$numero_mois.'/'.$annee.'" class="info">'.$i.'<span>'.afficheEvent($i, $event).'</span></a></div></td>'; # affiche l'évenement  en pop up "block"
+								echo '"><a href="evenement.php?d='.$i.'/'.$numero_mois.'/'.$annee.'" class="info">'.$i.'<span>'.afficheEvent($i, $event).'</span></a></div></td>'; # affiche l'évenement  en pop up 
 							} 
 						else 	
 						{
